@@ -28,8 +28,8 @@ public class LoginApplication  implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         User user = new User();
-        user.setUsername("loda");
-        user.setPassword(passwordEncoder.encode("loda"));
+        user.setUsername("trinhvandat");
+        user.setPassword(passwordEncoder.encode("trinhvandat"));
         userRepository.save(user);
         System.out.println(user);
 

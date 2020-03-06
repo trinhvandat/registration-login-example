@@ -8,9 +8,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
+@Transactional
 public class UserService implements UserDetailsService {
 
     @Autowired
@@ -27,6 +29,16 @@ public class UserService implements UserDetailsService {
         }
 
         System.out.println(user);
+        return new CustomUserDetails(user);
+    }
+
+
+    public UserDetails loadUserById(Integer id) {
+
+        User user = repository.findById(id).orElseThrow(
+                () -> new UsernameNotFoundException("User not found with id: " + id)
+        );
+
         return new CustomUserDetails(user);
     }
 }
