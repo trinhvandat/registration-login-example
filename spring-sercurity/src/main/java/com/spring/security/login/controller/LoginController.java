@@ -24,7 +24,7 @@ public class LoginController {
     AuthenticationManager authenticationManager;
 
     @Autowired
-    JwtTokenProvider jwtTokenProvider;
+    private JwtTokenProvider jwtTokenProvider;
 
 
     @PostMapping("/login")

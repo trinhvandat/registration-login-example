@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
-@Transactional
 public class UserService implements UserDetailsService {
 
     @Autowired
@@ -20,6 +19,7 @@ public class UserService implements UserDetailsService {
 
 
     @Override
+    @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         User user = repository.findByUsername(username);
@@ -32,7 +32,7 @@ public class UserService implements UserDetailsService {
         return new CustomUserDetails(user);
     }
 
-
+    @Transactional
     public UserDetails loadUserById(Integer id) {
 
         User user = repository.findById(id).orElseThrow(

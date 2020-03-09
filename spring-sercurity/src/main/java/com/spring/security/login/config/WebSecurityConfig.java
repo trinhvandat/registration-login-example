@@ -5,7 +5,6 @@ import com.spring.security.login.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -66,6 +65,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
        http
                .cors()// ngan request tu domain khac
                     .and()
+               .csrf()
+                    .disable()
                .authorizeRequests()
                     .antMatchers("/api/login").permitAll() // cho phep all user truy cap
                     .anyRequest().authenticated(); // tat ca request  khac can phai xac thuc
@@ -76,4 +77,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 }
+
 

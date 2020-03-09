@@ -3,7 +3,6 @@ package com.spring.security.login.jwt;
 
 import com.spring.security.login.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.security.SecurityConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

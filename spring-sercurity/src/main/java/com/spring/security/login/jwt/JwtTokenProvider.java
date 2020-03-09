@@ -31,7 +31,7 @@ public class JwtTokenProvider {
 
         //tao chuoi jwt tu id cua user
         return Jwts.builder()
-                .setSubject(Long.toString(userDetails.getUser().getId()))
+                .setSubject(Integer.toString(userDetails.getUser().getId()))
                 .setIssuedAt(now)
                 .setExpiration(expiryDay)
                 .signWith(SignatureAlgorithm.HS512, JWT_SECRET)
