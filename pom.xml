@@ -6,7 +6,23 @@
 
     <groupId>com.demo.registration.microsevices</groupId>
     <artifactId>spring-demo-registration</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+
+    <parent>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-parent</artifactId>
+            <version>2.2.4.RELEASE</version>
+
+    </parent>
+
+
+    <modules>
+        <module>util</module>
+        <module>microservices</module>
+    </modules>
 
 
 </project>
