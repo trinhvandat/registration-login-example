@@ -2,6 +2,7 @@ package com.spring.demo.registration.model.user;
 
 import com.github.ankurpathak.username.bean.constraints.UsernamePattern;
 import com.spring.demo.registration.model.dateAudit.DateAudit;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hibernate.annotations.NaturalId;
 
@@ -22,6 +23,7 @@ import java.util.Set;
         })
 })
 @Data
+@AllArgsConstructor
 public class User extends DateAudit {
 
         @Id
@@ -54,4 +56,10 @@ public class User extends DateAudit {
         private Set<Role> roles = new HashSet<>();
 
 
+        public User(@Size(max = 50) String name, @UsernamePattern @NotBlank @Size(max = 15) String username, @NotBlank @Size(max = 40) @Email String email, @NotBlank String password) {
+                this.name = name;
+                this.username = username;
+                this.email = email;
+                this.password = password;
+        }
 }
